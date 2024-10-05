@@ -22,6 +22,6 @@ Generate an API key from: https://sapling.ai/api_settings
 Create a .env file in the project root. Add the API key in the following format:
 SAPLING_PRIVATE_API_KEY=your_api_key
 
-#Run the Application
+# Run the Application
 To start the app, run the following command in the terminal:
 streamlit run main.py
