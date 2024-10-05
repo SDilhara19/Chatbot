@@ -2,8 +2,8 @@ import streamlit as st
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
 from langchain.chains.question_answering import load_qa_chain
-from Convogrid_Assessment.text_analysis import embed
-from Convogrid_Assessment.chatbot import chat_response
+from text_analysis import embed
+from chatbot import chat_response
 import os
 import uuid
 
