@@ -1,4 +1,4 @@
-from  Convogrid_Assessment.global_funcs import * 
+from  global_funcs import * 
 import re
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
