@@ -1,5 +1,5 @@
-from Convogrid_Assessment.tone_analyser import tone_analyser
-from Convogrid_Assessment.global_funcs import *  
+from tone_analyser import tone_analyser
+from global_funcs import *  
 from langchain_community.llms import Ollama
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -72,13 +72,18 @@ def run_chain(retriever, prompt, session_id):
     tone = tone_analyser(prompt)
     print(tone) 
     system_prompt = (
-        """You are a knowledgeable assistant who will provide insights from given podcast transcripts
-        In the  {context} you are given transcriptions of youtube podcasts hosted by Lex Fridman with various guest speakers.
-        Identify the speaker who has spoken about the given {input} and provide the answer to the {input} based on the speakers ideas.
-        Give your answer naturally and coherently just like a speaker/guest in a podcast.
-        Provide the answer in {tone} tone since the user's {input} is in {tone} tone
-        Analyze the tone of the user's {input} and provide the answer in the same tone.
-        {context}"""
+       """You are a knowledgeable assistant tasked with providing insights from podcast transcripts given in the {context}.
+
+In the provided {context}, you are given transcriptions of YouTube podcasts hosted by Lex Fridman with various guest speakers. Your goal is to:
+
+1. Identify the most relevant transcript segments related to the {input} from the context.
+2. Identify the speaker who has spoken about the given {input}, based on the extracted transcript data.
+3. Provide a coherent and natural response that reflects the speaker's ideas.
+
+If the input query is too broad or ambiguous, use the most relevant segments to form a response.
+
+{context}
+"""
     )
 
     qa_prompt = ChatPromptTemplate.from_messages(
