@@ -1,5 +1,5 @@
-from Convogrid_Assessment.tone_analyser import tone_analyser
-from Convogrid_Assessment.global_funcs import *  
+from tone_analyser import tone_analyser
+from global_funcs import *  
 from langchain_community.llms import Ollama
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
